@@ -3,6 +3,8 @@ package view
 import burp.api.montoya.{MontoyaApi, ui}
 import burp.api.montoya
 import burp.api.montoya.ui.UserInterface
+import controller.{ProxyController, RootController}
+import model.ProxyLogTableModel
 
 import java.awt.{Color, GridBagConstraints}
 import javax.swing.SpringLayout.Constraints
@@ -11,11 +13,11 @@ import scala.language.implicitConversions
 import scala.swing.GridBagPanel.{Anchor, Fill}
 import scala.swing.{Button, Component, Dimension, GridBagPanel, GridPanel, Insets, Label, Panel, SequentialContainer, TabbedPane, UIElement}
 
-class RootComponent(val api: MontoyaApi){
+class RootView(val rootController: RootController){
   val innerContents: TabbedPane = new TabbedPane {
     pages += new TabbedPane.Page(
       "Proxy",
-      new ProxyComponent(api)
+      rootController.getProxyView
     )
   }
 
