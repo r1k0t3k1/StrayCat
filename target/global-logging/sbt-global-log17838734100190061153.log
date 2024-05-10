@@ -1,0 +1,14 @@
+[debug] > Exec({file:/C:/Users/tiwasa/StrayCat/}root/assembly, None, None)
+[debug] Evaluating tasks: assembly
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Scala source to C:\Users\tiwasa\StrayCat\target\scala-2.13\classes ...
+[error] C:\Users\tiwasa\StrayCat\src\main\scala\view\RootComponent.scala:20:108: ';' expected but ')' found.
+[error]   override lazy val peer: java.awt.Component = api.userInterface().createHttpResponseEditor().uiComponent())
+[error]                                                                                                            ^
+[error] one error found
+[debug] Forcing garbage collection...
+[error] (Compile / compileIncremental) Compilation failed
+[error] Total time: 0 s, completed 2024/03/29 17:53:19
+[debug] > Exec(idea-shell, None, None)
+[debug] > Exec(, None, None)
+[debug] > Exec(idea-shell, None, None)

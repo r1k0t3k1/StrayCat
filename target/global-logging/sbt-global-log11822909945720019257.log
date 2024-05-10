@@ -1,0 +1,13 @@
+[debug] > Exec({file:/C:/Users/tiwasa/StrayCat/}root/assembly, None, None)
+[debug] Evaluating tasks: assembly
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Scala source to C:\Users\tiwasa\StrayCat\target\scala-2.13\classes ...
+[info] done compiling
+[info] 2 file(s) merged using strategy 'Rename' (Run the task at debug level to see the details)
+[info] 3 file(s) merged using strategy 'Discard' (Run the task at debug level to see the details)
+[info] Built: C:\Users\tiwasa\StrayCat\target\scala-2.13\StrayCat.jar
+[info] Jar hash: cd51473a23c2910f14e0a80ee2d928722dd5cbec
+[success] Total time: 1 s, completed 2024/04/02 18:10:24
+[debug] > Exec(idea-shell, None, None)
+[debug] > Exec(, None, None)
+[debug] > Exec(idea-shell, None, None)

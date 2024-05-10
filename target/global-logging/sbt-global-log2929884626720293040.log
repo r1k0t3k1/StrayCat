@@ -1,0 +1,17 @@
+[debug] > Exec({file:/C:/Users/tiwasa/StrayCat/}root/assembly, None, None)
+[warn] build source files have changed
+[warn] modified files: 
+[warn]   C:\Users\tiwasa\StrayCat\build.sbt
+[warn] Apply these changes by running `reload`.
+[warn] Automatically reload the build when source changes are detected by setting `Global / onChangedBuildSource := ReloadOnSourceChanges`.
+[warn] Disable this warning by setting `Global / onChangedBuildSource := IgnoreSourceChanges`.
+[debug] Evaluating tasks: assembly
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] 2 file(s) merged using strategy 'Rename' (Run the task at debug level to see the details)
+[info] 3 file(s) merged using strategy 'Discard' (Run the task at debug level to see the details)
+[info] Built: C:\Users\tiwasa\StrayCat\target\scala-2.13\{name.value}-{version.value}.jar
+[info] Jar hash: 745124bf9b727d128b6d4c6b2b96d74a991140db
+[success] Total time: 1 s, completed 2024/03/29 13:23:09
+[debug] > Exec(idea-shell, None, None)
+[debug] > Exec(, None, None)
+[debug] > Exec(idea-shell, None, None)

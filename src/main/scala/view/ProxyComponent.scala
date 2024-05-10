@@ -8,7 +8,8 @@ import java.awt.{Color, Rectangle}
 import javax.swing.{BoxLayout, JPanel}
 import javax.swing.border.EmptyBorder
 import scala.swing.GridBagPanel.Fill
-import scala.swing.event.ButtonClicked
+import scala.swing.Table.AutoResizeMode
+import scala.swing.event.{ButtonClicked, KeyPressed, ListSelectionChanged, MouseClicked, SelectionChanged, TableColumnsSelected, TableRowsSelected}
 import scala.swing.{BoxPanel, Button, ComboBox, Component, FlowPanel, GridBagPanel, Label, Orientation, Panel, ScrollPane, SplitPane, Table, TextField}
 
 class ProxyComponent(
@@ -48,22 +49,38 @@ class ProxyComponent(
   } -> c00
 
   var proxyLogTableModel = new ProxyLogTableModel
+  var requestEditor = api.userInterface().createHttpRequestEditor()
+  var responseEditor = api.userInterface().createHttpResponseEditor()
 
   val c01 = pair2Constraints(0,1)
   c01.fill = Fill.Both
   c01.weightx = 1
   c01.weighty = 1
   layout += new SplitPane(Orientation.Horizontal) {
-    topComponent = new ScrollPane(new Table(proxyLogTableModel))
+    topComponent = new ScrollPane(new Table(proxyLogTableModel){
+      autoResizeMode = AutoResizeMode.Off
+      listenTo(selection)
+      reactions += {
+        case TableRowsSelected(s, r, a) => {
+          proxyLogTableModel.getRequestResponseAt(s.selection.rows.head) match {
+            case Some(res) => {
+              responseEditor.setResponse(res)
+              requestEditor.setRequest(res.initiatingRequest())
+            }
+            case None    => {}
+          }
+        }
+      }
+    })
     bottomComponent = new SplitPane(Orientation.Vertical) {
       dividerLocation = api.userInterface().swingUtils().suiteFrame().getWidth / 2
       leftComponent = Component.wrap(new JPanel() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS))
-        add(api.userInterface().createHttpRequestEditor().uiComponent())
+        add(requestEditor.uiComponent())
       })
       rightComponent = Component.wrap(new JPanel() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS))
-        add(api.userInterface().createHttpResponseEditor().uiComponent())
+        add(responseEditor.uiComponent())
       })
     }
   } -> c01
@@ -75,7 +92,7 @@ class ProxyComponent(
   override def handleHttpResponseReceived(responseReceived: HttpResponseReceived): ResponseReceivedAction = {
     if (isProxying) {
       // TODO
-      proxyLogTableModel.add(new ProxyLogItemModel(responseReceived))
+      proxyLogTableModel.add(new ProxyLogItemModel(Some(responseReceived), "test name", proxyLogTableModel.getRowCount + 1))
     }
     ResponseReceivedAction.continueWith(responseReceived)
   }

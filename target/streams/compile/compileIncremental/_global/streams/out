@@ -1,0 +1,38 @@
+[debug] [zinc] IncrementalCompile -----------
+[debug] IncrementalCompile.incrementalCompile
+[debug] previous = Stamps for: 17 products, 5 sources, 3 libraries
+[debug] current source = Set(${BASE}/src/main/scala/view/ProxyComponent.scala, ${BASE}/src/main/scala/model/ProxyLogItemModel.scala, ${BASE}/src/main/scala/model/ProxyLogTableModel.scala, ${BASE}/src/main/scala/StrayCat.scala, ${BASE}/src/main/scala/view/RootComponent.scala)
+[debug] > initialChanges = InitialChanges(Changes(added = Set(), removed = Set(), changed = Set(${BASE}/src/main/scala/view/ProxyComponent.scala), unmodified = ...),Set(),Set(),API Changes: Set())
+[debug] 
+[debug] Initial source changes:
+[debug] 	removed: Set()
+[debug] 	added: Set()
+[debug] 	modified: Set(${BASE}/src/main/scala/view/ProxyComponent.scala)
+[debug] Invalidated products: Set()
+[debug] External API changes: API Changes: Set()
+[debug] Modified binary dependencies: Set()
+[debug] Initial directly invalidated classes: Set(view.ProxyComponent)
+[debug] Sources indirectly invalidated by:
+[debug] 	product: Set()
+[debug] 	binary dep: Set()
+[debug] 	external source: Set()
+[debug] All initially invalidated classes: Set(view.ProxyComponent)
+[debug] All initially invalidated sources:Set(${BASE}/src/main/scala/view/ProxyComponent.scala)
+[debug] Initial set of included nodes: view.ProxyComponent
+[debug] compilation cycle 1
+[info] compiling 1 Scala source to C:\Users\tiwasa\StrayCat\target\scala-2.13\classes ...
+[debug] Returning already retrieved and compiled bridge: C:\Users\tiwasa\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala2-sbt-bridge\2.13.13\scala2-sbt-bridge-2.13.13.jar.
+[debug] [zinc] Running cached compiler 574f19f0 for Scala compiler version 2.13.13
+[debug] [zinc] The Scala compiler is invoked with:
+[debug] 	-bootclasspath
+[debug] 	C:\Users\tiwasa\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-library\2.13.13\scala-library-2.13.13.jar
+[debug] 	-classpath
+[debug] 	C:\Users\tiwasa\StrayCat\target\scala-2.13\classes;C:\Users\tiwasa\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\modules\scala-swing_2.13\3.0.0\scala-swing_2.13-3.0.0.jar;C:\Users\tiwasa\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\net\portswigger\burp\extensions\montoya-api\2023.12.1\montoya-api-2023.12.1.jar
+[debug] New invalidations:
+[debug] Initial set of included nodes: 
+[debug] Previously invalidated, but (transitively) depend on new invalidations:
+[debug] Final step, transitive dependencies:
+[debug] 	Set()
+[debug] No classes were invalidated.
+[debug] Scala compilation took 0.1671388 s
+[info] done compiling

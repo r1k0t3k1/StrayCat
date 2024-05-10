@@ -1,0 +1,22 @@
+[debug] > Exec({file:/C:/Users/tiwasa/StrayCat/}root/assembly, None, None)
+[debug] Evaluating tasks: assembly
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Scala source to C:\Users\tiwasa\StrayCat\target\scala-2.13\classes ...
+[error] C:\Users\tiwasa\StrayCat\src\main\scala\model\ProxyLogItemModel.scala:38:80: type mismatch;
+[error]  found   : Object
+[error]  required: String
+[error] Error occurred in an application involving default arguments.
+[error]       cookies = httpResponse.cookies().toArray().fold("") { (acc, el) => acc + el },
+[error]                                                                                ^
+[error] C:\Users\tiwasa\StrayCat\src\main\scala\model\ProxyLogItemModel.scala:38:54: type mismatch;
+[error]  found   : Object
+[error]  required: String
+[error] Error occurred in an application involving default arguments.
+[error]       cookies = httpResponse.cookies().toArray().fold("") { (acc, el) => acc + el },
+[error]                                                      ^
+[error] two errors found
+[error] (Compile / compileIncremental) Compilation failed
+[error] Total time: 0 s, completed 2024/05/09 17:46:44
+[debug] > Exec(idea-shell, None, None)
+[debug] > Exec(, None, None)
+[debug] > Exec(idea-shell, None, None)

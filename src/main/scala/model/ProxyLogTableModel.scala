@@ -1,5 +1,7 @@
 package model
 
+import burp.api.montoya.http.handler.HttpResponseReceived
+
 import javax.swing.table.AbstractTableModel
 
 class ProxyLogTableModel extends AbstractTableModel {
@@ -10,6 +12,7 @@ class ProxyLogTableModel extends AbstractTableModel {
   override def getColumnCount: Int = ProxyLogItemModel.getFieldCount
 
   override def getValueAt(rowIndex: Int, columnIndex: Int): AnyRef = data(rowIndex).getFieldValueAt(columnIndex)
+  def getRequestResponseAt(rowIndex: Int): Option[HttpResponseReceived] = data(rowIndex).requestResponse
   def add(proxyLogItemModel: ProxyLogItemModel): List[ProxyLogItemModel] = {
     data = data.appended(proxyLogItemModel)
     fireTableRowsInserted(data.length, data.length)

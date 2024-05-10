@@ -5,41 +5,61 @@ import burp.api.montoya.http.handler.HttpResponseReceived
 import java.time.LocalDateTime
 
 class ProxyLogItemModel (
-  val id: Int = 0,
-  val requestName: String = "",
-  val host: String = "",
-  val method: String = "",
-  val path: String = "",
-  val params: Int = 0,
-  val isTarget: Boolean = false,
-  val isCommit: Boolean = false,
-  val isDuplicate: Boolean = false,
-  val isSimilar: Boolean = false,
-  val size: Int = 0,
-  val mimeType: String = "",
-  val extension: String = "",
-  val note: String = "",
-  val isTLS: Boolean = false,
-  val cookies: Int = 0,
-  val time: String = "",
+  res: Option[HttpResponseReceived] = None,
+  name: String = "",
+  id: Int = 0,
 ) {
-  def this(httpResponse: HttpResponseReceived) = {
-    this(
-      id = 0,
-      requestName = "Not implemented",
-      host = httpResponse.initiatingRequest().httpService().host(),
-      method = httpResponse.initiatingRequest().method(),
-      path = httpResponse.initiatingRequest().path(),
-      params = httpResponse.initiatingRequest().parameters().size(), // TODO ignore cookies
-      size = httpResponse.body().length(),
-      mimeType = httpResponse.mimeType().name(),
-      extension = httpResponse.initiatingRequest().fileExtension(),
-      isTLS = httpResponse.initiatingRequest().httpService().secure(),
-      cookies = httpResponse.cookies().size(),
-      time = LocalDateTime.now().toString
-    )
-  }
+  private val response: Option[HttpResponseReceived] = res
 
+  private val requestName: String = name
+  private val host: String = response match {
+    case Some(r) => r.initiatingRequest().httpService().host()
+    case None => ""
+  }
+  private val method: String = response match {
+    case Some(r) => r.initiatingRequest().method()
+    case None => ""
+  }
+  private val path: String = response match {
+    case Some(r) => r.initiatingRequest().path()
+    case None => ""
+  }
+  private val params: Int = response match {
+    case Some(r) => r.initiatingRequest().parameters().size()
+    case None => 0
+  }
+  private val statusCode: String = response match {
+    case Some(r) => r.statusCode().toString
+    case None => ""
+  }
+  private val isTarget = false // TODO
+  private val isCommit: Boolean = false // TODO
+  private val isDuplicate: Boolean = false // TODO
+  private val isSimilar: Boolean = false // TODO
+  private val size: Int = response match {
+    case Some(r) => r.body().length()
+    case None => 0
+  }
+  private val mimeType: Any = response match {
+    case Some(r) => r.mimeType()
+    case None => ""
+  }
+  private val extension: String = response match {
+    case Some(r) => r.initiatingRequest().fileExtension()
+    case None => ""
+  }
+  private val note: String = "" // TODO
+  private val isTLS: Boolean = response match {
+    case Some(r) => r.initiatingRequest().httpService().secure()
+    case None => false
+  }
+  private val cookies: Int = response match {
+    case Some(r) => r.cookies().size()
+    case None => 0
+  }
+  private val time: String = LocalDateTime.now().toString
+
+  def requestResponse: Option[HttpResponseReceived] = response
   def getFieldValueAt(i: Int): AnyRef = {
     i match {
       case 0 => id.asInstanceOf[AnyRef]
@@ -48,22 +68,22 @@ class ProxyLogItemModel (
       case 3 => method.asInstanceOf[AnyRef]
       case 4 => path.asInstanceOf[AnyRef]
       case 5 => params.asInstanceOf[AnyRef]
-      case 6 => isTarget.asInstanceOf[AnyRef]
-      case 7 => isCommit.asInstanceOf[AnyRef]
-      case 8 => isDuplicate.asInstanceOf[AnyRef]
-      case 9 => isSimilar.asInstanceOf[AnyRef]
-      case 10 => size.asInstanceOf[AnyRef]
-      case 11 => mimeType.asInstanceOf[AnyRef]
-      case 12 => extension.asInstanceOf[AnyRef]
-      case 13 => note.asInstanceOf[AnyRef]
-      case 14 => isTLS.asInstanceOf[AnyRef]
-      case 15 => cookies.asInstanceOf[AnyRef]
-      case 16 => time.asInstanceOf[AnyRef]
-      case _  => "Not implemented"
+      case 6 => statusCode.asInstanceOf[AnyRef]
+      case 7 => isTarget.asInstanceOf[AnyRef]
+      case 8 => isCommit.asInstanceOf[AnyRef]
+      case 9 => isDuplicate.asInstanceOf[AnyRef]
+      case 10 => isSimilar.asInstanceOf[AnyRef]
+      case 11 => size.asInstanceOf[AnyRef]
+      case 12 => mimeType.asInstanceOf[AnyRef]
+      case 13 => extension.asInstanceOf[AnyRef]
+      case 14 => note.asInstanceOf[AnyRef]
+      case 15 => isTLS.asInstanceOf[AnyRef]
+      case 16 => cookies.asInstanceOf[AnyRef]
+      case 17 => time.asInstanceOf[AnyRef]
+      case _ => "Not implemented"
     }
   }
 }
-
 object ProxyLogItemModel {
   private val fields = List(
     "#",
@@ -72,6 +92,7 @@ object ProxyLogItemModel {
     "Method",
     "Path",
     "Params",
+    "Status",
     "Target?",
     "Commit?",
     "Dup?",

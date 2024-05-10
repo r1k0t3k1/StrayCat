@@ -1,0 +1,5 @@
+[debug] > Exec({file:/C:/Users/tiwasa/StrayCat/}root/assembly, None, None)
+[debug] Evaluating tasks: assembly
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Scala source to C:\Users\tiwasa\StrayCat\target\scala-2.13\classes ...
+[info] done compiling

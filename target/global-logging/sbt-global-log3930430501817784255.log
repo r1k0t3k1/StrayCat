@@ -1,0 +1,8 @@
+[debug] > Exec({file:/C:/Users/tiwasa/StrayCat/}root/assembly, None, None)
+[debug] Evaluating tasks: assembly
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] Assembly jar up to date: C:\Users\tiwasa\StrayCat\target\scala-2.13\StrayCat-0.1.0-SNAPSHOT.jar
+[success] Total time: 0 s, completed 2024/03/29 13:24:02
+[debug] > Exec(idea-shell, None, None)
+[debug] > Exec(, None, None)
+[debug] > Exec(idea-shell, None, None)

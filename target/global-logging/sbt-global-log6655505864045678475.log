@@ -1,0 +1,16 @@
+[debug] > Exec({file:/C:/Users/tiwasa/StrayCat/}root/assembly, None, None)
+[debug] Evaluating tasks: assembly
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 2 Scala sources to C:\Users\tiwasa\StrayCat\target\scala-2.13\classes ...
+[error] C:\Users\tiwasa\StrayCat\src\main\scala\view\RootComponent.scala:8:12: value ++= is not a member of scala.collection.Seq[scala.swing.Component]
+[error] did you mean ++ or ++:?
+[error]   Expression does not convert to assignment because receiver is not assignable.
+[error]   contents ++= innerContents
+[error]            ^
+[error] one error found
+[debug] Forcing garbage collection...
+[error] (Compile / compileIncremental) Compilation failed
+[error] Total time: 1 s, completed 2024/03/29 16:26:30
+[debug] > Exec(idea-shell, None, None)
+[debug] > Exec(, None, None)
+[debug] > Exec(idea-shell, None, None)
